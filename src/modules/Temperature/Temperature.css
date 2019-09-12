@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:200&display=swap");
+
+.Temperature {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.TemperatureTitle {
+  font-family: "Oswald", sans-serif;
+  font-weight: 900;
+  color: #fff;
+  font-size: 10em;
+  animation: appear 3500ms;
+}
+
+.TemperatureIcon {
+  height: 50px;
+  margin-right: 20px;
+  animation: appear 3000ms;
+}
+
+.TemperatureInfoContainer {
+  width: 500px;
+  position: relative;
+}
+
+.xd {
+  position: absolute;
+  width: 500px;
+  animation: appear-slide 4500ms forwards;
+}
+.TemperatureInfo span {
+  display: flex;
+  align-items: flex-end;
+  margin: 15px;
+}
+
+.row .sectionText,
+.row .sectionTitle {
+  margin: 5px 0 10px 25px;
+  overflow: hidden;
+}
+
+.TemperatureInfoTitle {
+  font-size: 2em;
+  font-weight: 200;
+  border-bottom: 1px solid #fff;
+}

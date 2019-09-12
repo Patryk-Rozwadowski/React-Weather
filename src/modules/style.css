@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,900&display=swap");
+
+:root {
+  --family-font: "Roboto", sans-serif;
+  --light-weight: "300";
+  --normal-weight: "400";
+  --title-weight: "900";
+  --color: #fff;
+  --bg-color: rgba(0, 0, 0, 0.75);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.sectionTitle {
+  font-family: var(--family-font);
+  font-weight: var(--title-weight);
+  color: var(--color);
+}
+
+.sectionText {
+  font-family: var(--family-font);
+  font-weight: var(--normal-weight);
+  color: var(--color);
+}
+
+.sectionTextLight {
+  font-weight: var(--light-weight);
+  color: var(--color);
+}
+
+.container {
+  background-color: var(--bg-color);
+  width: 85vw;
+  height: 85vh;
+  animation: appear 400ms;
+}
+
+@keyframes appear-slide {
+  0% {
+    transform: translateX(-10%);
+    opacity:0;
+  }
+  
+  100% {
+    transform: translateX(0%);
+    opacity:1;
+  }
+
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300&display=swap");
+
+.CityInput {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  padding: 23px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+}
+
+.SearchBarContainer {
+    text-align: right;
+}

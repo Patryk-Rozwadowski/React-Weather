@@ -1,0 +1,21 @@
+.GeneralContainer {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin:5px;
+    text-align: center;
+}
+
+.GeneralTitle {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.GeneralTitle span{
+    font-size:2em;
+    margin:5px;
+    animation: appear 1500ms;
+}
