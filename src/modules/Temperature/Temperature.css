@@ -11,13 +11,13 @@
   font-weight: 900;
   color: #fff;
   font-size: 10em;
+  margin: 0 20px;
   animation: appear 3500ms;
 }
 
 .TemperatureIcon {
   height: 50px;
-  margin-right: 20px;
-  animation: appear 3000ms;
+  animation: appear 2000ms;
 }
 
 .TemperatureInfoContainer {
@@ -28,7 +28,8 @@
 .xd {
   position: absolute;
   width: 500px;
-  animation: appear-slide 4500ms forwards;
+  animation: appear-slide 4s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .TemperatureInfo span {
   display: flex;
