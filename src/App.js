@@ -72,7 +72,7 @@ class App extends React.Component {
   }
 
   onChangeHandler = (e) => {
-    console.log(this.state.description)
+
     if (e.target.value > 4) {
       this.s();
       this.setState({
@@ -153,7 +153,7 @@ class App extends React.Component {
                 windDeg={{ transform: `rotate(${this.state.windDeg}deg)` }}
               />
             </div>
-}
+            }
 
           </main>
         </div>
