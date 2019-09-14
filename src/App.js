@@ -27,6 +27,7 @@ class App extends React.Component {
       },
       humidity: '',
       pressure: '',
+      cloudinnes: '',
       weather: '',
       windSpeed: '',
       windDeg: '',
@@ -59,6 +60,7 @@ class App extends React.Component {
         icon: res.data.weather[0].icon,
         humidity: res.data.main.humidity,
         pressure: res.data.main.pressure,
+        cloudinnes: res.data.clouds.all,
         windSpeed: res.data.wind.speed,
         windDeg: res.data.wind.deg,
         city: input,
@@ -151,6 +153,8 @@ class App extends React.Component {
                 desc={this.firstLetterCapitalize(this.state.description) || '0'}
                 windSpeed={this.state.windSpeed}
                 windDeg={{ transform: `rotate(${this.state.windDeg}deg)` }}
+                pressure={this.state.pressure}
+                cloud={this.state.cloudinnes}
               />
             </div>
             }
