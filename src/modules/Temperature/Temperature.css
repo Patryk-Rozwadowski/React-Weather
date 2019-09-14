@@ -17,20 +17,15 @@
 
 .TemperatureIcon {
   height: 50px;
-  animation: appear 2000ms;
+  animation: appear 1000ms;
 }
 
 .TemperatureInfoContainer {
   width: 500px;
-  position: relative;
-}
-
-.xd {
-  position: absolute;
-  width: 500px;
-  animation: appear-slide 4s;
+   animation: appear-slide 4s;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .TemperatureInfo span {
   display: flex;
   align-items: flex-end;

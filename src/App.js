@@ -11,6 +11,7 @@ import CityInput from './modules/CityInput/CityInput'
 import General from './modules/General/General';
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,35 +28,44 @@ class App extends React.Component {
       humidity: '',
       pressure: '',
       weather: '',
-      speed: '',
-      degree: '',
+      windSpeed: '',
+      windDeg: '',
       icon: '',
       notFound: '',
       error: '',
       errorStatus: '',
       errorInfo: '',
-      isLoading: false
+      isLoading: false,
+      isMounted: false,
     }
   }
 
-  fetchData = async (e) => {
+  componentWillUnmount = () => {
+    this.setState({ isMounted: false });
+  }
+
+  fetchData = async e => {
     e.preventDefault();
 
     const { input } = this.state;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=4608dbdd344e79698ed563db79599f06`;
     this.setState({ isLoading: true })
-    axios.get(url)
+    this._isMount = false;
+    axios
+      .get(url)
       .then(res => this.setState({
         temperature: { temp: res.data.main.temp, tempMax: res.data.main.temp_max, tempMin: res.data.main.temp_min },
         description: res.data.weather[0].description,
         icon: res.data.weather[0].icon,
         humidity: res.data.main.humidity,
         pressure: res.data.main.pressure,
-        speed: res.data.wind.speed,
+        windSpeed: res.data.wind.speed,
+        windDeg: res.data.wind.deg,
         city: input,
         country: res.data.sys.country,
         isLoading: false,
-        error: false
+        error: false,
+        isMounted: true
       }))
 
       .catch(error => this.setState({ error: true, errorStatus: error.cod, errorInfo: error.message, isLoading: false }))
@@ -81,7 +91,7 @@ class App extends React.Component {
   }
 
   temperatureFormat(num) {
-    return num.toFixed(1);
+    return num ? num.toFixed(1) : null;
   }
 
   getTimeHandler = () => {
@@ -126,22 +136,24 @@ class App extends React.Component {
 
             {this.state.isLoading === true && <LoadingAnimation />}
 
-            {this.state.error === false &&
-              <div className='GeneralContainer'>
-                <General
+
+            {this.state.isMounted === true && <div className='GeneralContainer'>
+              <General
                 city={this.firstLetterCapitalize(this.state.city)}
-                  time={this.state.time}
-                  country={this.state.country}
-                />
-                <Temperature
-                  temp={this.temperatureFormat(this.state.temperature.temp)}
-                  icon={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
-                  tempMin={this.state.temperature.tempMin}
-                  tempMax={this.state.temperature.tempMax}
-                desc={this.firstLetterCapitalize(this.state.description)}
-                />
-              </div>
-            }
+                time={this.state.time}
+                country={this.state.country}
+              />
+              <Temperature
+                temp={this.temperatureFormat(this.state.temperature.temp) || '0'}
+                icon={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
+                tempMin={this.temperatureFormat(this.state.temperature.tempMin) || '0'}
+                tempMax={this.temperatureFormat(this.state.temperature.tempMax) || '0'}
+                desc={this.firstLetterCapitalize(this.state.description) || '0'}
+                windSpeed={this.state.windSpeed}
+                windDeg={{ transform: `rotate(${this.state.windDeg}deg)` }}
+              />
+            </div>
+}
 
           </main>
         </div>

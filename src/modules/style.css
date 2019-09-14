@@ -40,7 +40,7 @@
 
 @keyframes appear-slide {
   0% {
-    transform: translateX(-10%);
+    transform: translateX(-15%);
     opacity:0;
   }
   
