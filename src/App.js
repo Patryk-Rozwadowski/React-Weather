@@ -122,13 +122,13 @@ class App extends React.Component {
       <div className='App'>
         <div className='container'>
 
-          <div>
+          <nav>
             <CityInput
               submit={e => this.s(e)}
               cityValue={this.state.input}
               onChangeHandler={e => this.onChangeHandler(e)}
             />
-          </div>
+          </nav>
 
           <main>
 

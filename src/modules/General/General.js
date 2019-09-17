@@ -9,7 +9,7 @@ const General = props =>
 
     <div className='GeneralTitle'>
         <span className='sectionTitle'> <FontAwesomeIcon icon={faMapMarkerAlt} /> {props.city}, {props.country}</span>
-        <span className='sectionTitle'>{props.time}</span>
+        <span className='sectionTextLight'>{props.time}</span>
     </div>
     
 export default General;

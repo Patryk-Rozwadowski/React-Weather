@@ -6,7 +6,7 @@
   --normal-weight: "400";
   --title-weight: "900";
   --color: #fff;
-  --bg-color: rgba(0, 0, 0, 0.75);
+  --bg-color: rgba(0, 0, 0, 0.85);
 }
 
 .row {
@@ -28,6 +28,7 @@
 
 .sectionTextLight {
   font-weight: var(--light-weight);
+  font-family: var(--family-font);
   color: var(--color);
 }
 

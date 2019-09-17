@@ -16,7 +16,7 @@
 }
 
 .TemperatureIcon {
-  height: 50px;
+  height: 5em;
   animation: appear 1000ms;
 }
 
