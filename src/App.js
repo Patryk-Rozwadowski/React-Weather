@@ -92,7 +92,7 @@ class App extends React.Component {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  temperatureFormat(num) {
+  oneDigitFormat = (num) => {
     return num ? num.toFixed(1) : null;
   }
 
@@ -146,15 +146,16 @@ class App extends React.Component {
                 country={this.state.country}
               />
               <Temperature
-                temp={this.temperatureFormat(this.state.temperature.temp) || '0'}
+                temp={this.oneDigitFormat(this.state.temperature.temp) || '0'}
                 icon={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
-                tempMin={this.temperatureFormat(this.state.temperature.tempMin) || '0'}
-                tempMax={this.temperatureFormat(this.state.temperature.tempMax) || '0'}
+                tempMin={this.oneDigitFormat(this.state.temperature.tempMin) || '0'}
+                tempMax={this.oneDigitFormat(this.state.temperature.tempMax) || '0'}
                 desc={this.firstLetterCapitalize(this.state.description) || '0'}
                 windSpeed={this.state.windSpeed}
                 windDeg={{ transform: `rotate(${this.state.windDeg}deg)` }}
-                pressure={this.state.pressure}
+                pressure={this.oneDigitFormat(this.state.pressure)}
                 cloud={this.state.cloudinnes}
+                humidity={this.state.humidity}
               />
             </div>
             }

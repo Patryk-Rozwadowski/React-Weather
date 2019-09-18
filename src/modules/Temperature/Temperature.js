@@ -26,11 +26,12 @@ const Temperature = props =>
                 </div>
 
                 <div className='row'>
-                    <span className='sectionText'>Pressure: {props.pressure}</span>
+                    <span className='sectionText'>Pressure: {props.pressure} hPa</span>
                 </div>
 
                 <div className='row'>
                     <span className='sectionText'>&#x2601; {props.cloud}%</span>
+                    <span className='sectionText'>&#x1f4a7; {props.humidity}%</span>'
                 </div>
 
             </section>
