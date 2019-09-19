@@ -5,7 +5,7 @@ const CityInput = props =>
 
     <div className='SearchBarContainer'>
         <form onSubmit={props.submit} >
-            <input placeholder='&#x1f50d;'
+            <input placeholder='&#8981;'
                 className='CityInput'
                 value={props.cityValue}
                 onChange={props.onChangeHandler} >

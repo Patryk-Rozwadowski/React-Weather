@@ -7,8 +7,9 @@ import './modules/style.css'
 import Temperature from './modules/Temperature/Temperature';
 import ErrorInfo from './modules/ErrorInfo/ErrorInfo';
 import LoadingAnimation from './modules/LoadingAnimation/LoadingAnimation';
-import CityInput from './modules/CityInput/CityInput'
+import CityInput from './modules/CityInput/CityInput';
 import General from './modules/General/General';
+import Home from './modules/Home/Home';
 
 class App extends React.Component {
 
@@ -111,7 +112,7 @@ class App extends React.Component {
     this.setState({ time })
   }
 
-  s = e => {
+  submitHandler = e => {
     e.preventDefault();
     this.getTimeHandler();
     this.fetchData(e);
@@ -124,7 +125,7 @@ class App extends React.Component {
 
           <nav>
             <CityInput
-              submit={e => this.s(e)}
+              submit={e => this.submitHandler(e)}
               cityValue={this.state.input}
               onChangeHandler={e => this.onChangeHandler(e)}
             />
@@ -132,32 +133,46 @@ class App extends React.Component {
 
           <main>
 
-            {this.state.error === true && <ErrorInfo errorStatus={this.state.errorStatus} errorInfo={this.state.errorInfo} />}
+            {
+              this.state.error === true && <ErrorInfo
+                errorStatus={this.state.errorStatus}
+                errorInfo={this.state.errorInfo} />
+            }
 
-            {this.state.input === '' && <h1>Write your city</h1>}
+            {
+              this.state.input === '' && <Home
+                homeTitle='Weather in your city' 
+                homeText='Write city in searcher'/>
+            }
 
-            {this.state.isLoading === true && <LoadingAnimation />}
+            {
+              this.state.isLoading === true && <LoadingAnimation />
+            }
 
 
-            {this.state.isMounted === true && <div className='GeneralContainer'>
-              <General
-                city={this.firstLetterCapitalize(this.state.city)}
-                time={this.state.time}
-                country={this.state.country}
-              />
-              <Temperature
-                temp={this.oneDigitFormat(this.state.temperature.temp) || '0'}
-                icon={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
-                tempMin={this.oneDigitFormat(this.state.temperature.tempMin) || '0'}
-                tempMax={this.oneDigitFormat(this.state.temperature.tempMax) || '0'}
-                desc={this.firstLetterCapitalize(this.state.description) || '0'}
-                windSpeed={this.state.windSpeed}
-                windDeg={{ transform: `rotate(${this.state.windDeg}deg)` }}
-                pressure={this.oneDigitFormat(this.state.pressure)}
-                cloud={this.state.cloudinnes}
-                humidity={this.state.humidity}
-              />
-            </div>
+            {
+              this.state.isMounted === true &&
+
+              <div className='GeneralContainer'>
+                <General
+                  city={this.firstLetterCapitalize(this.state.city)}
+                  time={this.state.time}
+                  country={this.state.country}
+                />
+                <Temperature
+                  temp={this.oneDigitFormat(this.state.temperature.temp) || '0'}
+                  icon={`http://openweathermap.org/img/wn/${this.state.icon}@2x.png`}
+                  tempMin={this.oneDigitFormat(this.state.temperature.tempMin) || '0'}
+                  tempMax={this.oneDigitFormat(this.state.temperature.tempMax) || '0'}
+                  desc={this.firstLetterCapitalize(this.state.description) || '0'}
+                  windSpeed={this.state.windSpeed}
+                  windDeg={{ transform: `rotate(${this.state.windDeg}deg)` }}
+                  pressure={this.oneDigitFormat(this.state.pressure)}
+                  cloud={this.state.cloudinnes}
+                  humidity={this.state.humidity}
+                />
+              </div>
+
             }
 
           </main>
