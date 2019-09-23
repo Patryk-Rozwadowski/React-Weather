@@ -22,7 +22,7 @@
 
 .TemperatureInfoContainer {
   width: 500px;
-   animation: appear-slide 4s;
+  animation: appear-slide 4s;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -42,4 +42,31 @@
   font-size: 2em;
   font-weight: 200;
   border-bottom: 1px solid #fff;
+}
+
+@media (max-width: 768px) {
+  .CityInput {
+    width: inherit;
+    padding: 10px 0 10px 15px;
+  }
+
+  .TemperatureTitle {
+    font-size: 7em;
+  }
+
+  .TemperatureInfoContainer {
+    margin-top: 50px;
+  }
+
+  .Temperature {
+    display: block;
+  }
+
+  .GeneralContainer {
+    margin-top: 50px;
+  }
+
+  .GeneralContainer .row {
+    justify-content: center;
+  }
 }
