@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 import CityInput from '../CityInput/CityInput';
-import { FETCH_DATA } from '../../redux/actions/actions';
+import { fetchData } from '../../redux/actions/actions';
 
 class CityInputContainer extends Component {
     render() {
         return (
             <div>
                 <CityInput 
-                searchCity={this.props.onSearchCity}
+                fetchInfo={this.props.onSearchCity}
                 />
             </div>
         )
@@ -18,7 +18,7 @@ class CityInputContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSearchCity: city => dispatch({type:FETCH_DATA, payload: { city }})
+        onSearchCity: url => dispatch(fetchData(url))
     }
 }
 

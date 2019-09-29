@@ -1,8 +1,8 @@
-import {FETCH_DATA, FETCH_DATA_PENDING, FETCH_DATA_OK, FETCH_DATA_ERROR} from '../actions/actions';
+import {FETCH_DATA, FETCH_DATA_LOADING, FETCH_DATA_OK, FETCH_DATA_ERROR} from '../actions/actions';
 
 const initialState = {
-    city: '',
-    pending: false,
+    url: '',
+    isLoading: false,
     data: {},
     error: null
 }
@@ -13,26 +13,26 @@ const weatherReducer = (state = initialState, action) => {
         case FETCH_DATA:
           return {
             ...state,
-            city: action.payload.city
+            url: action.url
           }
 
-        case FETCH_DATA_PENDING:
+        case FETCH_DATA_LOADING:
             return {
                 ...state,
-                pending: true
+                isLoading: true
             }
 
         case FETCH_DATA_OK:
             return {
                 ...state,
-                pending: false,
+                isLoading: false,
                 data: action.payload
             }
             
         case FETCH_DATA_ERROR:
             return {
                 ...state,
-                pending: false,
+                isLoading: false,
                 error: action.error
             }
             

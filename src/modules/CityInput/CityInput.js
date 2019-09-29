@@ -20,7 +20,7 @@ class CityInput extends React.Component {
                         className='CityInput'
                         value={this.state.city}
                         onChange={this.onChangeHandler} />
-                    <button onClick={() => this.props.searchCity(this.state.city)}> SEND</button>
+                <button onClick={() => this.props.fetchInfo(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=4608dbdd344e79698ed563db79599f06`)}> SEND</button>
             
             </div>)
     }

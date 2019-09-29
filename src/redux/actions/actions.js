@@ -1,41 +1,46 @@
 import axios from 'axios';
 
 export const FETCH_DATA = 'FETCH_DATA';
-export const FETCH_DATA_PENDING = 'FETCH_DATA_PENDING';
+export const FETCH_DATA_LOADING = 'FETCH_DATA_PENDING';
 export const FETCH_DATA_OK = 'FETCH_DATA_OK';
 export const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR';
 
-export const fetchData = city => {
-    return dispatch => {
-        
-        dispatch(fetchDataPending());
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=4608dbdd344e79698ed563db79599f06`;
-        axios
-            .get(url)
-            .then(res => {
-                dispatch(fetchDataOk(res.data.main.temp))
-                return res.data.temp
+export const fetchData = (url) => {
+    return (dispatch) => {
+        dispatch(fetchDataLoading(true));
+
+        fetch(url)
+            .then((res) => {
+                if (!res.ok) {
+                    throw Error(res.statusTex);
+                }
+
+                dispatch(fetchDataLoading(false));
+
+                return res;
             })
-
+            .then((res) => res.json())
+            .then((data) => dispatch(fetchDataOk(data)))
     }
 }
 
-export const fetchDataPending = () => {
+export const fetchDataLoading = (bool) => {
     return {
-        type: FETCH_DATA_PENDING
+        type: FETCH_DATA_LOADING,
+        isLoading: bool
     }
 }
 
-export const fetchDataOk = data => {
+export const fetchDataOk = (data) => {
     return {
         type: FETCH_DATA_OK,
         data
     }
 }
 
-export const fetchDataError = error => {
+export const fetchDataError = (bool) => {
     return {
         type: FETCH_DATA_ERROR,
-        error
+        error: bool
     }
 }
