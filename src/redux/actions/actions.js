@@ -9,18 +9,13 @@ export const fetchData = (url) => {
     return (dispatch) => {
         dispatch(fetchDataLoading(true));
 
-        fetch(url)
+        axios(url)
             .then((res) => {
-                if (!res.ok) {
-                    throw Error(res.statusTex);
-                }
-
                 dispatch(fetchDataLoading(false));
-
                 return res;
             })
-            .then((res) => res.json())
-            .then((data) => dispatch(fetchDataOk(data)))
+            .then((data) => dispatch(fetchDataOk(data.data)))
+            .catch(error => dispatch(fetchDataError(error.message)))
     }
 }
 
@@ -38,9 +33,9 @@ export const fetchDataOk = (data) => {
     }
 }
 
-export const fetchDataError = (bool) => {
+export const fetchDataError = (status) => {
     return {
         type: FETCH_DATA_ERROR,
-        error: bool
+        error: status
     }
 }

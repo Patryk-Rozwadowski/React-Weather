@@ -5,11 +5,12 @@ import CityInput from '../CityInput/CityInput';
 import { fetchData } from '../../redux/actions/actions';
 
 class CityInputContainer extends Component {
+    
     render() {
         return (
             <div>
                 <CityInput 
-                fetchInfo={this.props.onSearchCity}
+                    fetchInfo={this.props.onSearchCity}
                 />
             </div>
         )

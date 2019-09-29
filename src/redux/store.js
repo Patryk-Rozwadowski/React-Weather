@@ -9,6 +9,5 @@ export const store = createStore(
     compose(
         applyMiddleware(thunk),
         DevTools.instrument()
-
     )
 );

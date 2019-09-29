@@ -1,7 +1,6 @@
 import {FETCH_DATA, FETCH_DATA_LOADING, FETCH_DATA_OK, FETCH_DATA_ERROR} from '../actions/actions';
 
 const initialState = {
-    url: '',
     isLoading: false,
     data: {},
     error: null
@@ -9,12 +8,6 @@ const initialState = {
 
 const weatherReducer = (state = initialState, action) => {
     switch (action.type) {
-
-        case FETCH_DATA:
-          return {
-            ...state,
-            url: action.url
-          }
 
         case FETCH_DATA_LOADING:
             return {
@@ -33,7 +26,7 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                error: action.error
+                error: action.status
             }
             
         default: 
