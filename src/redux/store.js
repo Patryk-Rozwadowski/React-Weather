@@ -1,4 +1,8 @@
 import { createStore } from 'redux';
-import reducers from '../reducers/weather-reducers';
+import  weatherReducer from './reducers/weather';
+import DevTools from './DevTools/DevTools'
 
-export const store = createStore(reducers);
+export const store = createStore(
+    weatherReducer,
+    DevTools.instrument()
+    );
