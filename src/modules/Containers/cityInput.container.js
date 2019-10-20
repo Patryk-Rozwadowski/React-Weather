@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import CityInput from '../CityInput/CityInput';
 import { fetchData } from '../../redux/actions/actions';
 
 class CityInputContainer extends Component {
-    
+
     render() {
         return (
             <div>
-                <CityInput 
+                <CityInput
                     fetchInfo={this.props.onSearchCity}
                 />
             </div>

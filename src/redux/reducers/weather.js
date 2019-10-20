@@ -1,9 +1,12 @@
-import {FETCH_DATA, FETCH_DATA_LOADING, FETCH_DATA_OK, FETCH_DATA_ERROR} from '../actions/actions';
+import {FETCH_DATA_LOADING, FETCH_DATA_OK, FETCH_DATA_ERROR, IS_MOUNTED} from '../actions/actions';
 
 const initialState = {
     isLoading: false,
-    data: {},
-    error: null
+    data: {'gowno': 'he'},
+    weather: {},
+    temperature: {},
+    error: null,
+    isMounted: false
 }
 
 const weatherReducer = (state = initialState, action) => {
@@ -12,14 +15,14 @@ const weatherReducer = (state = initialState, action) => {
         case FETCH_DATA_LOADING:
             return {
                 ...state,
-                isLoading: true
+                isLoading: action.isLoading
             }
 
         case FETCH_DATA_OK:
             return {
                 ...state,
                 isLoading: false,
-                data: action.payload
+                temperature: action.data.main
             }
             
         case FETCH_DATA_ERROR:
@@ -29,6 +32,12 @@ const weatherReducer = (state = initialState, action) => {
                 error: action.status
             }
             
+        case IS_MOUNTED:
+            return {
+              ...state,
+              isMounted: action.isMounted
+            }
+
         default: 
             return state;
     }

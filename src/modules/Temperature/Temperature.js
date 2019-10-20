@@ -1,44 +1,51 @@
 import React from 'react';
 import './Temperature.css';
 
-const Temperature = props =>
-    <div className='row'>
+class Temperature extends React.Component {
 
-        <div className='Temperature'>
+    render() {
+        return (
+            <div className='row'>
 
-            <span><img className='TemperatureIcon' src={props.icon} alt='weather icon' /></span>
+                <div className='Temperature'>
 
-            <span className='TemperatureTitle sectionTextLight'>{props.temp}°C</span>
+                    <span><img className='TemperatureIcon' src={this.props.icon} alt='weather icon' /></span>
 
-            <section className='TemperatureInfoContainer'>
-                <div className='row'>
-                    <span className='sectionTitle TemperatureInfoTitle'> {props.desc} </span>
-                </div>           
-               
-                <div className='row'>
-                    <span className='sectionText'>Min: {props.tempMin} °C</span>
-                    <span className='sectionText'>Max: {props.tempMax} °C</span>
+                    <span className='TemperatureTitle sectionTextLight'>{this.props.temp}°C</span>
+
+                    <section className='TemperatureInfoContainer'>
+                        <div className='row'>
+                            <span className='sectionTitle TemperatureInfoTitle'> {this.props.desc} </span>
+                        </div>
+
+                        <div className='row'>
+                            <span className='sectionText'>Min: {this.props.tempMin} °C</span>
+                            <span className='sectionText'>Max: {this.props.tempMax} °C</span>
+                        </div>
+
+                        <div className='row'>
+                            <span className='sectionText'>Wind: {this.props.windSpeed} m/s </span>
+                            <span className='sectionText' style={this.props.windDeg}> ➤ </span>
+                        </div>
+
+                        <div className='row'>
+                            <span className='sectionText'>Pressure: {this.props.pressure} hPa</span>
+                        </div>
+
+                        <div className='row'>
+                            <span className='sectionText'>&#x2601; {this.props.cloud}%</span>
+                            <span className='sectionText'>&#x1f4a7; {this.props.humidity}%</span>'
+                        </div>
+
+                    </section>
+
                 </div>
 
-                <div className='row'>
-                    <span className='sectionText'>Wind: {props.windSpeed} m/s </span>
-                    <span className='sectionText' style={props.windDeg}> ➤ </span>
-                </div>
+            </div>
 
-                <div className='row'>
-                    <span className='sectionText'>Pressure: {props.pressure} hPa</span>
-                </div>
+        )
+    }
 
-                <div className='row'>
-                    <span className='sectionText'>&#x2601; {props.cloud}%</span>
-                    <span className='sectionText'>&#x1f4a7; {props.humidity}%</span>'
-                </div>
-
-            </section>
-
-        </div>
-
-    </div>
-
+}
 
 export default Temperature;

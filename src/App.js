@@ -12,6 +12,7 @@ import General from './modules/General/General';
 
 import CityInputContainer from './modules/Containers/cityInput.container'
 import DevTools from './redux/DevTools/DevTools';
+import TemperatureContainer from './modules/Containers/Temperature.container';
 
 class App extends React.Component {
 
@@ -45,10 +46,18 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        <CityInputContainer />
-        <DevTools />
+
+        <main className='container'>
+
+          <CityInputContainer />
+          <TemperatureContainer />
+          <DevTools />
+          
+        </main>
+
       </div>
     )
   }
 }
+
 export default App;
