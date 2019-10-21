@@ -1,10 +1,14 @@
 import {FETCH_DATA_LOADING, FETCH_DATA_OK, FETCH_DATA_ERROR, IS_MOUNTED} from '../actions/actions';
 
 const initialState = {
-    isLoading: false,
-    data: {'gowno': 'he'},
     weather: {},
     temperature: {},
+    wind: {},
+    clouds: {},
+    sys: {},
+    pressure: {},
+    humidity: {},
+    isLoading: false,
     error: null,
     isMounted: false
 }
@@ -22,7 +26,13 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                temperature: action.data.main
+                temperature: action.data.main,
+                pressure: action.data.main,
+                humidity: action.data.main,
+                weather: action.data.weather[0],
+                wind: action.data.wind,
+                clouds: action.data.clouds,
+                sys: action.data.sys
             }
             
         case FETCH_DATA_ERROR:

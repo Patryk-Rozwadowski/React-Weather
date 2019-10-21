@@ -25,7 +25,7 @@ class Temperature extends React.Component {
 
                         <div className='row'>
                             <span className='sectionText'>Wind: {this.props.windSpeed} m/s </span>
-                            <span className='sectionText' style={this.props.windDeg}> ➤ </span>
+                            <span className='sectionText' style={{ transform: `rotate(${this.props.windDeg}deg)` }}> ➤ </span>
                         </div>
 
                         <div className='row'>
@@ -33,7 +33,7 @@ class Temperature extends React.Component {
                         </div>
 
                         <div className='row'>
-                            <span className='sectionText'>&#x2601; {this.props.cloud}%</span>
+                            <span className='sectionText'>&#x2601; {this.props.clouds}%</span>
                             <span className='sectionText'>&#x1f4a7; {this.props.humidity}%</span>'
                         </div>
 
