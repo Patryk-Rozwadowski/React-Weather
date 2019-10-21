@@ -13,6 +13,7 @@ import General from './modules/General/General';
 import CityInputContainer from './modules/Containers/cityInput.container'
 import DevTools from './redux/DevTools/DevTools';
 import TemperatureContainer from './modules/Containers/Temperature.container';
+import GeneralContainer from './modules/Containers/General.container';
 
 class App extends React.Component {
 
@@ -48,8 +49,8 @@ class App extends React.Component {
       <div className='App'>
 
         <main className='container'>
-
           <CityInputContainer />
+          <GeneralContainer />
           <TemperatureContainer />
           <DevTools />
           

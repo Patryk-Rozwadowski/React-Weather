@@ -8,6 +8,8 @@ const initialState = {
     sys: {},
     pressure: {},
     humidity: {},
+    city: {},
+    country: {},
     isLoading: false,
     error: null,
     isMounted: false
@@ -26,6 +28,8 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
+                city: action.data,
+                country: action.data.sys,
                 temperature: action.data.main,
                 pressure: action.data.main,
                 humidity: action.data.main,
