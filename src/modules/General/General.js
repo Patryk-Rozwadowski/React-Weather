@@ -5,11 +5,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 
 
-const General = props =>
+class General extends React.Component {
 
-    <div className='GeneralTitle'>
-        <span className='sectionTitle'> <FontAwesomeIcon icon={faMapMarkerAlt} /> {props.city}, {props.country}</span>
-        <span className='sectionTextLight'>{props.time}</span>
-    </div>
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            time: ''
+        }
+    }
+
+    componentDidMount = () => {
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        let time;
+
+        if (minutes >= 0 && minutes < 10) {
+            time = `${hours}:0${minutes}`;
+        }
+        else {
+            time = `${hours}:${minutes}`;
+        }
+        this.setState({ time })
+    }
+
+    render() {
+        return (
+            <div className='GeneralTitle'>
+                <span className='sectionTitle'> <FontAwesomeIcon icon={faMapMarkerAlt} /> {this.props.city}, {this.props.country}</span>
+                <span className='sectionTextLight'>{this.state.time}</span>
+            </div>
+
+        )
+    }
+
+}
+
 export default General;

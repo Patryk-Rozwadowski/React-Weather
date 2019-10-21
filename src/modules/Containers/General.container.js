@@ -8,7 +8,7 @@ class GeneralContainer extends React.Component {
     render() {
         return (
             <div>
-                {this.props.isMounted === false && <LoadingAnimation />}
+                {this.props.isLoading === true ? <LoadingAnimation /> : [] }
                 {
                     this.props.isMounted === true
                     &&
@@ -26,7 +26,8 @@ const mapStateToProps = state => {
     return {
         city: state.city.name,
         country: state.country.country,
-        isMounted: state.isMounted
+        isMounted: state.isMounted,
+        isLoading: state.isLoading
     }
 }
 
