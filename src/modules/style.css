@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,900&display=swap");
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900&display=swap');
 :root {
   --family-font: "Roboto", sans-serif;
-  --light-weight: "300";
+  --light-weight: "100";
   --normal-weight: "400";
   --title-weight: "900";
   --color: #fff;
@@ -27,7 +26,7 @@
 }
 
 .sectionTextLight {
-  font-weight: var(--light-weight);
+  font-weight: 100;
   font-family: var(--family-font);
   color: var(--color);
 }
