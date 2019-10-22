@@ -4,8 +4,9 @@
   --light-weight: "100";
   --normal-weight: "400";
   --title-weight: "900";
-  --color: #fff;
+  --white-color: #fff;
   --bg-color: rgba(0, 0, 0, 0.85);
+  --input-bg-color: rgba(255, 255, 255, 0.2);
 }
 
 .row {
@@ -16,19 +17,19 @@
 .sectionTitle {
   font-family: var(--family-font);
   font-weight: var(--title-weight);
-  color: var(--color);
+  color: var(--white-color);
 }
 
 .sectionText {
   font-family: var(--family-font);
   font-weight: var(--normal-weight);
-  color: var(--color);
+  color: var(--white-color);
 }
 
 .sectionTextLight {
   font-weight: 100;
   font-family: var(--family-font);
-  color: var(--color);
+  color: var(--white-color);
 }
 
 .container {

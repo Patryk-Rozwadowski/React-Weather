@@ -5,11 +5,22 @@
   font-weight: 300;
   font-size: 1.5em;
   padding: 23px;
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--white-color);
+  background-color: var(--input-bg-color);
   border: 0;
 }
 
 .SearchBarContainer {
     text-align: right;
+}
+
+.submit-button {
+  border: 1px solid var(--input-bg-color);
+  padding:22px;
+  transition: 400ms ease;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  background-color: var(--bg-color);
 }

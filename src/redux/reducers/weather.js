@@ -60,7 +60,6 @@ const weatherReducer = (state = initialState, action) => {
 export default weatherReducer;
 
  /* const { input } = this.state;
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=4608dbdd344e79698ed563db79599f06`;
 this.setState({ isLoading: true })
 this._isMount = false;
 axios
