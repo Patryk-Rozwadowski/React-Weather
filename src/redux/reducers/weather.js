@@ -1,4 +1,4 @@
-import {FETCH_DATA_LOADING, FETCH_DATA_OK, FETCH_DATA_ERROR, IS_MOUNTED} from '../actions/actions';
+import { FETCH_DATA_LOADING, FETCH_DATA_OK, FETCH_DATA_ERROR, IS_MOUNTED} from '../actions/actions';
 
 const initialState = {
     weather: {},
@@ -10,9 +10,11 @@ const initialState = {
     humidity: {},
     city: {},
     country: {},
+    error: false,
+    errorInfo: {},
+    errorStatus: {},
+    isMounted: false,
     isLoading: false,
-    error: null,
-    isMounted: false
 }
 
 const weatherReducer = (state = initialState, action) => {
@@ -43,7 +45,9 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                error: action.status
+                errorInfo: action.error.statusText,
+                errorStatus: action.error.status,
+                error: true
             }
             
         case IS_MOUNTED:

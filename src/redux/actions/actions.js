@@ -16,7 +16,7 @@ export const fetchData = (url) => {
                 return res;
             })
             .then((res) => dispatch(fetchDataOk(res.data)))
-            .catch(error => dispatch(fetchDataError(error.message)))
+            .catch(error => dispatch(fetchDataError(error.response)))
         dispatch(checkIsMounted(true))
     }
 }
@@ -35,10 +35,10 @@ export const fetchDataOk = (data) => {
     }
 }
 
-export const fetchDataError = (status) => {
+export const fetchDataError = (error) => {
     return {
         type: FETCH_DATA_ERROR,
-        error: status
+        error
     }
 }
 

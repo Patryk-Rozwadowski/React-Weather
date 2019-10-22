@@ -8,7 +8,7 @@ class TemperatureContainer extends React.Component {
     render() {
         return (
             <div>
-                {this.props.isLoading === true ? <LoadingAnimation /> : []}
+                {this.props.isLoading === true && <LoadingAnimation /> }
                 {
                     this.props.isMounted === true
                     &&
