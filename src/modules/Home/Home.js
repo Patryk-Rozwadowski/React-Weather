@@ -7,11 +7,11 @@ const Home = props =>
     <section className='HomeContainer'>
         
         <div className='row'>
-            <h1 className='sectionTitle'>xD</h1>
+            <h1 className='sectionTitle'>Home</h1>
         </div>
 
         <div className='row'>
-            <h2 className='sectionTextLight'>xD</h2>
+            <h2 className='sectionTextLight'>Home</h2>
         </div>
     </section>
 

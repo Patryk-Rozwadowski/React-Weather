@@ -5,6 +5,8 @@ import './App.css';
 import './reset.css';
 import './modules/style.css'
 
+import {AppRoutes} from './routes';
+
 
 import CityInputContainer from './modules/Containers/cityInput.container'
 import DevTools from './redux/DevTools/DevTools';
@@ -15,20 +17,9 @@ import Home from './modules/Home/Home';
 export default class App extends React.Component {
   render() {
     return (
-      <Router history={browserHistory}>
-        <div className='App'>
-
-          {/* <main className='container'> */}
-          <Route exact path="/" component={Home} />
-          <Route path='/weather-info' component={CityInputContainer} />
-          {/* <CityInputContainer />
-          <GeneralContainer />
-          <TemperatureContainer />
-          <DevTools /> */}
-
-          {/* </main> */}
-        </div>
-      </Router>
+      <div>
+        <AppRoutes />
+      </div>
     )
   }
 }
