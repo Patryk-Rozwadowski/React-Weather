@@ -1,10 +1,12 @@
 import React from "react";
-import { Router, Route, browserHistory } from 'react-router'
+import { Route, BrowserRouter } from 'react-router-dom'
 
 import IndexModules from './modules/index';
+import Home from './modules/Home/Home';
 
 export const AppRoutes = () =>
 
-    <Router history={browserHistory}>
-        <Route exact path="/" component={IndexModules} />
-    </Router>
+    <BrowserRouter>
+            <Route exact path="/" component={Home} />
+            <Route path="/weather" component={IndexModules} />
+    </BrowserRouter>

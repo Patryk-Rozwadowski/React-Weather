@@ -1,18 +1,39 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom'
+import CityInputContainer from '../Containers/cityInput.container'
 import './Home.css';
 
-const Home = props =>
 
-    <section className='HomeContainer'>
-        
-        <div className='row'>
-            <h1 className='sectionTitle'>Home</h1>
-        </div>
+class Home extends React.Component {
 
-        <div className='row'>
-            <h2 className='sectionTextLight'>Home</h2>
-        </div>
-    </section>
+    submitForm = (e) => {
+        e.preventDefault()
+        this.props.history.push('/weather');
+    }
 
-export default Home;
+    render() {
+        return (
+            <div>
+                <div className='App'>
+                    <section className='HomeContainer'>
+
+                        <div className='row'>
+                            <h1 className='sectionTitle'>Weather in your</h1>
+                        </div>
+
+                        <div className='row'>
+                            <h2 className='sectionTextLight'>City!</h2>
+                        </div>
+
+                        <form onSubmit={this.submitForm}>
+                            <CityInputContainer onSubmit={this.submitForm} />
+                        </form>
+                    </section>
+                </div>
+            </div>
+        )
+
+    }
+}
+export default withRouter(Home);

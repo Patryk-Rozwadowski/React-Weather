@@ -3,10 +3,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:75px;
+    margin-top:-75px;
 }
 
 .HomeContainer h1,
 .HomeContainer h2 {
     font-size: 3em;
+    margin:20px;
 }
