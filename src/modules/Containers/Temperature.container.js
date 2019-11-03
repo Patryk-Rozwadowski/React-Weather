@@ -1,17 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import Temperature from '../Temperature/Temperature';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
+import ErrorInfoContainer from './ErrorInfo.container';
 
 class TemperatureContainer extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.props.isLoading === true && <LoadingAnimation /> }
+            <React.Fragment>
+                {
+                    this.props.isLoading === true && <LoadingAnimation />
+                }
+
+                {
+                    this.props.error === true &&
+                    <div className='ErrorCenter'>
+                        <ErrorInfoContainer />
+                    </div>
+                }
+
                 {
                     this.props.isMounted === true
-                    &&
+                    && this.props.error === false &&
                     <Temperature
                         icon={`http://openweathermap.org/img/wn/${this.props.icon}@2x.png`}
                         desc={this.props.desc}
@@ -25,7 +37,7 @@ class TemperatureContainer extends React.Component {
                         humidity={this.props.humidity}
                     />
                 }
-            </div>
+            </React.Fragment>
         )
     }
 
@@ -44,7 +56,8 @@ const mapStateToProps = state => {
         clouds: state.clouds.all,
         humidity: state.humidity.humidity,
         isMounted: state.isMounted,
-        isLoading: state.isLoading
+        isLoading: state.isLoading,
+        error: state.error
     }
 }
 

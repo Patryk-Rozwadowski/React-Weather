@@ -9,14 +9,13 @@ class GeneralContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {this.props.isLoading === true && <LoadingAnimation />}
-                {this.props.error === true && <ErrorInfoContainer />}
                 {this.props.error === false && this.props.isMounted && 
                     <General
                         city={this.props.city}
-                        country={this.props.country} />}
-            </div>
+                        country={this.props.country} /> }
+            </React.Fragment>
         )
     }
 

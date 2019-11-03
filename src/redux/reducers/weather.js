@@ -29,7 +29,6 @@ const weatherReducer = (state = initialState, action) => {
         case FETCH_DATA_OK:
             return {
                 ...state,
-                isLoading: false,
                 city: action.data,
                 country: action.data.sys,
                 temperature: action.data.main,
@@ -38,16 +37,18 @@ const weatherReducer = (state = initialState, action) => {
                 weather: action.data.weather[0],
                 wind: action.data.wind,
                 clouds: action.data.clouds,
-                sys: action.data.sys
+                sys: action.data.sys,
+                error: false,
+                isLoading: false
             }
             
         case FETCH_DATA_ERROR:
             return {
                 ...state,
-                isLoading: false,
                 errorInfo: action.error.statusText,
                 errorStatus: action.error.status,
-                error: true
+                error: true,
+                isLoading: false,
             }
             
         case IS_MOUNTED:

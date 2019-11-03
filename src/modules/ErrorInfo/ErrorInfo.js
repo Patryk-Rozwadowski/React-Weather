@@ -4,11 +4,11 @@ import './ErrorInfo.css';
 
 const ErrorInfo = props =>
 
-    <div>
-        <div className='ErrorInfoContainer containerBg'>
-            <span className='sectionTitle'>Status: {props.errorInfo} - {props.errorStatus}</span>
+    <React.Fragment>
+        <div className='ErrorInfoContainer'>
+            <span className='sectionTitle errorTitle'>Status: {props.errorInfo} - {props.errorStatus}</span>
         </div>
-    </div>
+    </React.Fragment>
 
 
 

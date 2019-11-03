@@ -7,11 +7,11 @@ class ErrorInfoContainer extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <ErrorInfo
                     errorInfo={this.props.errorInfo}
                     errorStatus={this.props.errorStatus} />
-            </div>
+            </React.Fragment>
         )
     }
 }

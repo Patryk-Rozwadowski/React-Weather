@@ -21,11 +21,9 @@ class Home extends React.Component {
                         <div className='row'>
                             <h1 className='sectionTitle'>Weather in your</h1>
                         </div>
-
                         <div className='row'>
                             <h2 className='sectionTextLight'>City!</h2>
                         </div>
-
                         <form onSubmit={this.submitForm}>
                             <CityInputContainer onSubmit={this.submitForm} />
                         </form>
@@ -33,7 +31,6 @@ class Home extends React.Component {
                 </div>
             </div>
         )
-
     }
 }
 export default withRouter(Home);

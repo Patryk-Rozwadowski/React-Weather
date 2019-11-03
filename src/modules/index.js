@@ -1,5 +1,4 @@
 import React from "react";
-import { Router, Route, browserHistory } from 'react-router'
 
 import CityInputContainer from './Containers/cityInput.container'
 import DevTools from '../redux/DevTools/DevTools';
@@ -15,6 +14,7 @@ export default class IndexModules extends React.Component {
                     <CityInputContainer />
                     <GeneralContainer />
                     <TemperatureContainer />
+                    <DevTools />
                 </main>
             </div>
         )
