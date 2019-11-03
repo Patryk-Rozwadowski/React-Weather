@@ -6,7 +6,7 @@ import Home from './modules/Home/Home';
 
 export const AppRoutes = () =>
 
-    <BrowserRouter>
-            <Route exact path="/" component={Home} />
-            <Route path="/weather" component={IndexModules} />
-    </BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <Route exact path="/" component={Home} />
+                <Route path="/weather" component={IndexModules} />
+        </BrowserRouter>

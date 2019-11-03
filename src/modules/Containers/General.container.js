@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import General from '../General/General';
 
-import ErrorInfoContainer from './ErrorInfo.container';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
 class GeneralContainer extends React.Component {
@@ -11,10 +10,10 @@ class GeneralContainer extends React.Component {
         return (
             <React.Fragment>
                 {this.props.isLoading === true && <LoadingAnimation />}
-                {this.props.error === false && this.props.isMounted && 
+                {this.props.error === false && this.props.isMounted &&
                     <General
                         city={this.props.city}
-                        country={this.props.country} /> }
+                        country={this.props.country} />}
             </React.Fragment>
         )
     }
